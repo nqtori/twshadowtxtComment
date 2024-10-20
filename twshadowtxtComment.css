@@ -1,12 +1,11 @@
 @charset "utf-8";
-/* フォントのインポート部分はそのまま残す */
 @import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Kaisei+Decol:wght@500&family=Kiwi+Maru:wght@500&family=M+PLUS+Rounded+1c:wght@500&family=RocknRoll+One&family=Sawarabi+Mincho&family=Shippori+Mincho:wght@500&family=Yuji+Mai&family=Yusei+Magic&display=swap');
 
-/* 名前とコメントのスタイル */
+/* コメントの基本スタイル */
 body, .chat-room, .chat-line__moderation, .chat-line__status, .chat-line__message, .chat-author__display-name {
   margin: 0 auto!important;
   overflow: hidden!important;
@@ -16,44 +15,73 @@ body, .chat-room, .chat-line__moderation, .chat-line__status, .chat-line__messag
   line-height:1.4;
 }
 
-/* 名前を右揃えにする */
-.chat-line__username-container {
-  display: block !important;
-  text-align: right !important;
-  margin-bottom: 5px !important; /* 名前とコメントの間隔 */
+/* 既存のスタイルを維持しつつ、ユーザー名の非表示を解除 */
+.chat-line__no-background{
+  display: inline-block!important;
+  width: auto!important;
+  color: white !important;
+  margin-left:8px;
+  padding: 0px 15px;
+  border-radius: 20px;
+  height: 1.3em !important;
+  letter-spacing: 0.12em!important;
+  text-shadow:
+        var(--shadow-color) 2px 0px,  var(--shadow-color) -2px 0px,
+        var(--shadow-color) 0px -2px, var(--shadow-color) 0px 2px,
+        var(--shadow-color) 2px 2px , var(--shadow-color) -2px 2px,
+        var(--shadow-color) 2px -2px, var(--shadow-color) -2px -2px,
+        var(--shadow-color) 1px 2px,  var(--shadow-color) -1px 2px,
+        var(--shadow-color) 1px -2px, var(--shadow-color) -1px -2px,
+        var(--shadow-color) 2px 1px,  var(--shadow-color) -2px 1px,
+        var(--shadow-color) 2px -1px, var(--shadow-color) -2px -1px;
 }
 
-.chat-author__display-name {
-  font-weight: bold !important;
-  color: #ffcc00 !important; /* 名前の色をカスタマイズ */
+/* ユーザー名を非表示にしていたルールを削除 */
+.chat-line__username-container span:first-child {
+  display: inline !important; /* 強制的にユーザー名を表示 */
 }
 
-/* 名前を非表示にするルールを削除 */
-
-/* コメント部分のスタイル */
-.chat-line__message .text-fragment {
-  color: #ddd !important;
-  text-align: right !important; /* コメントを右揃えに */
-  margin-top: 0 !important;
-  position: relative !important;
-  z-index: 2 !important;
-  line-height: 1.2 !important;
+span[aria-hidden="true"] {
+  display: inline !important; /* aria-hidden属性の要素も表示 */
 }
 
-/* 「:」を非表示にする */
-.chat-line__message span[data-a-target="chat-message-separator"] {
+/* そのほかの不要な要素はそのまま非表示にする */
+.stream-chat-header,
+.channel-leaderboard-container,
+.tw-interactable,
+.tw-z-default,
+.chat-input,
+.chat-line__status{
+  visibility: hidden!important;
+  display:none!important;
+  width: 0!important;
+  height: 0!important;
+  border: none!important;
+}
+
+/* 他の不要なUIを隠すスタイル */
+.user-notice-line{
+  display:none;
+}
+
+.kAQTjE,
+.hZLfAO {
+    display: none !important;
+}
+
+.community-highlight-stack__scroll-area--disable{
+  display: none!important;
+}
+
+.community-highlight-stack__backlog-card,
+.community-highlight-stack__nav-target{
   display: none !important;
 }
 
-/* コメント全体のスタイル */
-.chat-line__message {
-  display: flex !important;
-  flex-direction: column !important; /* 名前とコメントを縦に並べる */
-  align-items: flex-end !important; /* 名前とコメントを右揃えに */
-  margin-bottom: 10px !important;
-  padding: 5px !important;
-  position: relative !important;
-  line-height: 1.2 !important;
+.paid-pinned-chat-message-list{
+  display: none;
 }
 
-/* その他のスタイルはそのまま */
+.paid-pinned-chat-message-content-wrapper{
+  display: none!important;
+}
