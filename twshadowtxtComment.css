@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* フォントのインポート部分はそのまま残す */
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stick&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Kaisei+Decol:wght@500&family=Kiwi+Maru:wght@500&family=M+PLUS+Rounded+1c:wght@500&family=RocknRoll+One&family=Sawarabi+Mincho&family=Shippori+Mincho:wght@500&family=Yuji+Mai&family=Yusei+Magic&display=swap');
+
+/* 名前とコメントのスタイル */
+body, .chat-room, .chat-line__moderation, .chat-line__status, .chat-line__message, .chat-author__display-name {
+  margin: 0 auto!important;
+  overflow: hidden!important;
+  font-weight: bold!important;
+  font-size: 16px!important;
+  background-color: rgba(0,0,0,0)!important;
+  line-height:1.4;
+}
+
+/* 名前を右揃えにする */
+.chat-line__username-container {
+  display: block !important;
+  text-align: right !important;
+  margin-bottom: 5px !important; /* 名前とコメントの間隔 */
+}
+
+.chat-author__display-name {
+  font-weight: bold !important;
+  color: #ffcc00 !important; /* 名前の色をカスタマイズ */
+}
+
+/* 名前を非表示にするルールを削除 */
+
+/* コメント部分のスタイル */
+.chat-line__message .text-fragment {
+  color: #ddd !important;
+  text-align: right !important; /* コメントを右揃えに */
+  margin-top: 0 !important;
+  position: relative !important;
+  z-index: 2 !important;
+  line-height: 1.2 !important;
+}
+
+/* 「:」を非表示にする */
+.chat-line__message span[data-a-target="chat-message-separator"] {
+  display: none !important;
+}
+
+/* コメント全体のスタイル */
+.chat-line__message {
+  display: flex !important;
+  flex-direction: column !important; /* 名前とコメントを縦に並べる */
+  align-items: flex-end !important; /* 名前とコメントを右揃えに */
+  margin-bottom: 10px !important;
+  padding: 5px !important;
+  position: relative !important;
+  line-height: 1.2 !important;
+}
+
+/* その他のスタイルはそのまま */
